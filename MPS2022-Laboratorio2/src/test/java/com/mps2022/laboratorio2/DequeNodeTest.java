@@ -98,7 +98,7 @@ public class DequeNodeTest {
 
         @Test
         public void setPreviousSetsValueAndUpdatesIt() {
-            previous.setItem(5);
+            previous= new DequeNode<Integer>(5, next, previous);
             node.setPrevious(previous);
             int expectedValue = 5;
             int obtainedValue = node.getPrevious().getItem();
@@ -108,7 +108,7 @@ public class DequeNodeTest {
 
         @Test
         public void setNextSetsValueAndUpdatesIt() {
-            next.setItem(5);
+            next= new DequeNode<Integer>(5, next, previous);
             node.setNext(next);
             int expectedValue = 5;
             int obtainedValue = node.getNext().getItem();
