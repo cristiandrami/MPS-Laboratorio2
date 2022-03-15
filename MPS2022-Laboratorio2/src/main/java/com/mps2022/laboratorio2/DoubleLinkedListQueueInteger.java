@@ -1,12 +1,12 @@
 package com.mps2022.laboratorio2;
 
 public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
-    private DequeNode head=null;
-    private DequeNode tail=null;
+    private DequeNode<Integer> head=null;
+    private DequeNode<Integer> tail=null;
     private int size=0;
 
     @Override
-    public void append(DequeNode node) {
+    public void append(DequeNode<Integer> node) {
         if(node==null){
             throw new RuntimeException("node is null, cannot append it");
         }
@@ -29,7 +29,7 @@ public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
     }
 
     @Override
-    public void appendLeft(DequeNode node) {
+    public void appendLeft(DequeNode<Integer> node) {
 
         if(node==null){
             throw new RuntimeException("node is null, cannot append it");
@@ -55,7 +55,7 @@ public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
         else if(head==tail){
             head=tail=null;
         }else{
-            head =(DequeNode) head.getNext();
+            head = head.getNext();
             if(this.head != null)
                 head.setPrevious(null);
 
@@ -70,7 +70,7 @@ public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
         else if(head==tail){
             head=tail=null;
         }else{
-            tail =(DequeNode) tail.getPrevious();
+            tail =tail.getPrevious();
             if(tail != null)
                 head.setNext(null);
 
@@ -80,12 +80,12 @@ public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
     }
 
     @Override
-    public DequeNode peekFirst() {
+    public DequeNode<Integer> peekFirst() {
         return head;
     }
 
     @Override
-    public DequeNode peekLast() {
+    public DequeNode<Integer> peekLast() {
         return tail;
     }
 
