@@ -29,6 +29,18 @@ public class DequeNode<T> {
         this.previous = previous ;
     }
 
+    public void setItem(T item) {
+        this.item = item;
+    }
+
+    public void setNext(T next) {
+        this.next = next;
+    }
+
+    public void setPrevious(T previous) {
+        this.previous = previous;
+    }
+
     public boolean isFirstNode() {
 
         return previous == null ;
