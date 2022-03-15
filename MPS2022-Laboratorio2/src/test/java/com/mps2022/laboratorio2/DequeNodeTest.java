@@ -38,7 +38,9 @@ public class DequeNodeTest {
 
         @Test
         public void getNextDontReturnNull() {
-            next.setItem(1);
+
+            next= new DequeNode<Integer>(1, next, previous);
+            node.setNext(next);
             int expectedValue = 1;
             int obtainedValue = node.getNext().getItem();
 
@@ -47,7 +49,8 @@ public class DequeNodeTest {
 
         @Test
         public void getPreviousDontReturnNull() {
-            node.getPrevious().setItem(2);
+            previous= new DequeNode<Integer>(2, next, previous);
+            node.setPrevious(previous);
             int expectedValue = 2;
             int obtainedValue = node.getPrevious().getItem();
 
