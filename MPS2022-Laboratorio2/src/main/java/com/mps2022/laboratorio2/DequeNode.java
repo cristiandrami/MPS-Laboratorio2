@@ -42,10 +42,12 @@ public class DequeNode<T> {
     }
 
     public boolean isFirstNode() {
+
         return previous == null ;
     }
 
     public boolean isLastNode() {
+
         return next == null ;
     }
 
