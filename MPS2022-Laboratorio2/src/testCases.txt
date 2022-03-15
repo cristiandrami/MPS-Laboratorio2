@@ -1,0 +1,11 @@
+Casos de prueba para DequeNode:
+1. getItem no devuelve null si tiene algun item
+2. getNext no devuelve null si tiene algun next
+3. getPrevious no devuelve null si tiene algun previous
+4. isFirstNode devuelve false si no es el primero
+5. isLastNode devuelve false si no es el ultimo
+6. isFirstNode devuelve true si es el primero
+7. isFirstNode devuelve true si es el ultimo
+8. setItem actualiza su valor por el que se le pasa como parametro
+9. setPrevious actualiza su valor por el que se le pasa como parametro
+10. setNext actualiza su valor por el que se le pasa como parametro

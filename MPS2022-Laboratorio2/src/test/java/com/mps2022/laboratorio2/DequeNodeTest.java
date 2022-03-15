@@ -53,4 +53,55 @@ public class DequeNodeTest {
         assertFalse(node.isFirstNode() == true);
     }
 
+    @Test
+    public void isLastNodeReturnFalseIfNextNotNull(){
+        assertFalse(node.isLastNode() == true);
+    }
+
+    @Test
+    public void isFirstNodeReturnTrueIfPreviousNull(){
+        node.setPrevious(null);
+        boolean expectedValue = true;
+        boolean obtainedValue = node.isFirstNode();
+
+        assertEquals(expectedValue,obtainedValue);
+    }
+
+    @Test
+    public void isLastNodeReturnTrueIfNextNull(){
+        node.setNext(null);
+        boolean expectedValue = true;
+        boolean obtainedValue = node.isLastNode();
+
+        assertEquals(expectedValue,obtainedValue);
+    }
+
+    @Test
+    public void setItemSetsValueAndUpdatesIt(){
+        node.setItem(5);
+        int expectedValue = 5;
+        int obtainedValue = node.getItem();
+
+        assertEquals(expectedValue,obtainedValue);
+    }
+
+    @Test
+    public void setPreviousSetsValueAndUpdatesIt(){
+        node.setPrevious(5);
+        int expectedValue = 5;
+        int obtainedValue = node.getPrevious();
+
+        assertEquals(expectedValue,obtainedValue);
+    }
+
+    @Test
+    public void setNextSetsValueAndUpdatesIt(){
+        node.setNext(5);
+        int expectedValue = 5;
+        int obtainedValue = node.getNext();
+
+        assertEquals(expectedValue,obtainedValue);
+    }
+
+
 }
