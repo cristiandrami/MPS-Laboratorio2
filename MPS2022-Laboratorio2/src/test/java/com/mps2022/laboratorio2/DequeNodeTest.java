@@ -6,107 +6,115 @@ import java.util.Deque;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-/*
+
 public class DequeNodeTest {
 
     DequeNode<Integer> node;
-    DequeNode<Integer> next;
-    DequeNode<Integer> previous;
+    DequeNode<Integer> next = null;
+    DequeNode<Integer> previous = null;
 
     @BeforeEach
     public void setup(){
-        next.setNext(1);
-        previous.setPrevious(2);
-        node = new DequeNode<Integer>(0, next ,previous);
+        node = new DequeNode<Integer>(0, next, previous);
     }
 
     @AfterEach
     public void finish(){
         node = null;
     }
+    @Nested
+    class TestingGetters {
+        @Test
+        public void getItemDontReturnNull() {
+            int expectedValue = 0;
+            int obtainedValue = node.getItem();
 
-    @Test
-    public void getItemDontReturnNull(){
-        int expectedValue = 0;
-        int obtainedValue =  node.getItem();
+            assertEquals(expectedValue, obtainedValue);
+        }
 
-        assertEquals(expectedValue, obtainedValue);
+        @Test
+        public void getNextDontReturnNull() {
+            next.setItem(1);
+            int expectedValue = 1;
+            int obtainedValue = node.getNext().getItem();
+
+            assertEquals(expectedValue, obtainedValue);
+        }
+
+        @Test
+        public void getPreviousDontReturnNull() {
+            node.getPrevious().setItem(2);
+            int expectedValue = 2;
+            int obtainedValue = node.getPrevious().getItem();
+
+            assertEquals(expectedValue, obtainedValue);
+        }
     }
 
-    @Test
-    public void getNextDontReturnNull(){
-        int expectedValue = 1;
-        int obtainedValue =  node.getNext();
+    @Nested
+    class TestingIsFirstIsLast {
+        @Test
+        public void isFirstNodeReturnFalseIfPreviousNotNull() {
+            assertTrue(node.isFirstNode() == true);
+        }
 
-        assertEquals(expectedValue, obtainedValue);
+        @Test
+        public void isLastNodeReturnFalseIfNextNotNull() {
+            assertTrue(node.isLastNode() == true);
+        }
+
+        @Test
+        public void isFirstNodeReturnTrueIfPreviousNull() {
+
+            boolean expectedValue = true;
+            boolean obtainedValue = node.isFirstNode();
+
+            assertEquals(expectedValue, obtainedValue);
+        }
+
+        @Test
+        public void isLastNodeReturnTrueIfNextNull() {
+            node.setNext(null);
+            boolean expectedValue = true;
+            boolean obtainedValue = node.isLastNode();
+
+            assertEquals(expectedValue, obtainedValue);
+        }
     }
+    @Nested
+    class TestingSets {
+        @Test
+        public void setItemSetsValueAndUpdatesIt() {
+            node.setItem(5);
+            int expectedValue = 5;
+            int obtainedValue = node.getItem();
 
-    @Test
-    public void getPreviousDontReturnNull(){
-        int expectedValue = 2;
-        int obtainedValue =  node.getPrevious();
+            assertEquals(expectedValue, obtainedValue);
+        }
 
-        assertEquals(expectedValue, obtainedValue);
+        @Test
+        public void setPreviousSetsValueAndUpdatesIt() {
+            previous.setItem(5);
+            node.setPrevious(previous);
+            int expectedValue = 5;
+            int obtainedValue = node.getPrevious().getItem();
+
+            assertEquals(expectedValue, obtainedValue);
+        }
+
+        @Test
+        public void setNextSetsValueAndUpdatesIt() {
+            next.setItem(5);
+            node.setNext(next);
+            int expectedValue = 5;
+            int obtainedValue = node.getNext().getItem();
+
+            assertEquals(expectedValue, obtainedValue);
+        }
     }
-
-    @Test
-    public void isFirstNodeReturnFalseIfPreviousNotNull(){
-        assertFalse(node.isFirstNode() == true);
-    }
-
-    @Test
-    public void isLastNodeReturnFalseIfNextNotNull(){
-        assertFalse(node.isLastNode() == true);
-    }
-
-    @Test
-    public void isFirstNodeReturnTrueIfPreviousNull(){
-        node.setPrevious(null);
-        boolean expectedValue = true;
-        boolean obtainedValue = node.isFirstNode();
-
-        assertEquals(expectedValue,obtainedValue);
-    }
-
-    @Test
-    public void isLastNodeReturnTrueIfNextNull(){
-        node.setNext(null);
-        boolean expectedValue = true;
-        boolean obtainedValue = node.isLastNode();
-
-        assertEquals(expectedValue,obtainedValue);
-    }
-
-    @Test
-    public void setItemSetsValueAndUpdatesIt(){
-        node.setItem(5);
-        int expectedValue = 5;
-        int obtainedValue = node.getItem();
-
-        assertEquals(expectedValue,obtainedValue);
-    }
-
-    @Test
-    public void setPreviousSetsValueAndUpdatesIt(){
-        node.setPrevious(5);
-        int expectedValue = 5;
-        int obtainedValue = node.getPrevious();
-
-        assertEquals(expectedValue,obtainedValue);
-    }
-
-    @Test
-    public void setNextSetsValueAndUpdatesIt(){
-        node.setNext(5);
-        int expectedValue = 5;
-        int obtainedValue = node.getNext();
-
-        assertEquals(expectedValue,obtainedValue);
-    }
-
 
 }
-*/
