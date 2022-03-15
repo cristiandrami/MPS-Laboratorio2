@@ -1,12 +1,12 @@
 package com.mps2022.laboratorio2;
 
-public class DoubleLinkedListQueue implements DoubleEndedQueue{
-    private DequeNode head=null;
-    private DequeNode tail=null;
+public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
+    private DequeNode<Integer> head=null;
+    private DequeNode<Integer> tail=null;
     private int size=0;
 
     @Override
-    public void append(DequeNode node) {
+    public void append(DequeNode<Integer> node) {
         if(node==null){
             throw new RuntimeException("node is null, cannot append it");
         }
@@ -29,7 +29,7 @@ public class DoubleLinkedListQueue implements DoubleEndedQueue{
     }
 
     @Override
-    public void appendLeft(DequeNode node) {
+    public void appendLeft(DequeNode<Integer> node) {
 
         if(node==null){
             throw new RuntimeException("node is null, cannot append it");
@@ -46,8 +46,6 @@ public class DoubleLinkedListQueue implements DoubleEndedQueue{
             node.setNext(head);
             head = node;
         }
-
-
         size++;
     }
 
@@ -57,12 +55,13 @@ public class DoubleLinkedListQueue implements DoubleEndedQueue{
         else if(head==tail){
             head=tail=null;
         }else{
-            head =(DequeNode) head.getNext();
+            head = head.getNext();
             if(this.head != null)
                 head.setPrevious(null);
 
         }
-        size--;
+        if(size!=0)
+            size--;
     }
 
     @Override
@@ -71,21 +70,22 @@ public class DoubleLinkedListQueue implements DoubleEndedQueue{
         else if(head==tail){
             head=tail=null;
         }else{
-            tail =(DequeNode) tail.getPrevious();
+            tail =tail.getPrevious();
             if(tail != null)
                 head.setNext(null);
 
         }
-        size--;
+        if(size!=0)
+            size--;
     }
 
     @Override
-    public DequeNode peekFirst() {
+    public DequeNode<Integer> peekFirst() {
         return head;
     }
 
     @Override
-    public DequeNode peekLast() {
+    public DequeNode<Integer> peekLast() {
         return tail;
     }
 
