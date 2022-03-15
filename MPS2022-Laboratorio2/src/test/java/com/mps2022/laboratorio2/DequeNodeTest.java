@@ -13,10 +13,14 @@ import static org.junit.jupiter.api.Assertions.*;
 public class DequeNodeTest {
 
     DequeNode<Integer> node;
+    DequeNode<Integer> next;
+    DequeNode<Integer> previous;
 
     @BeforeEach
     public void setup(){
-        node = new DequeNode<Integer>(0,1,2);
+        next.setNext(1);
+        previous.setPrevious(2);
+        node = new DequeNode<Integer>(0, next ,previous);
     }
 
     @AfterEach
