@@ -1,6 +1,6 @@
 package com.mps2022.laboratorio2;
 
-public class DoubleLinkedListQueue implements DoubleEndedQueue{
+public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
     private DequeNode head=null;
     private DequeNode tail=null;
     private int size=0;
@@ -46,8 +46,6 @@ public class DoubleLinkedListQueue implements DoubleEndedQueue{
             node.setNext(head);
             head = node;
         }
-
-
         size++;
     }
 
@@ -62,7 +60,8 @@ public class DoubleLinkedListQueue implements DoubleEndedQueue{
                 head.setPrevious(null);
 
         }
-        size--;
+        if(size!=0)
+            size--;
     }
 
     @Override
@@ -76,7 +75,8 @@ public class DoubleLinkedListQueue implements DoubleEndedQueue{
                 head.setNext(null);
 
         }
-        size--;
+        if(size!=0)
+            size--;
     }
 
     @Override
