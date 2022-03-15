@@ -51,12 +51,12 @@ public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
 
     @Override
     public void deleteFirst() {
-        if(head==null){ return;}
+        if(head==null){ throw new RuntimeException("cannot delete first node, link is empty");}
         else if(head==tail){
             head=tail=null;
         }else{
             head = head.getNext();
-            if(this.head != null)
+            if(head != null)
                 head.setPrevious(null);
 
         }
@@ -66,7 +66,7 @@ public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
 
     @Override
     public void deleteLast() {
-        if(tail==null){ return;}
+        if(tail==null){ throw new RuntimeException("cannot delete first node, link is empty");}
         else if(head==tail){
             head=tail=null;
         }else{
