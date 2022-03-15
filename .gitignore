@@ -1,3 +1,9 @@
+#target folder
+target
+
+#project properties folder 
+.idea
+
 # Compiled class file
 *.class
 
