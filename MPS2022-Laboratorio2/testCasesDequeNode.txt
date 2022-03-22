@@ -6,6 +6,7 @@ Casos de prueba para DequeNode:
 5. isLastNode devuelve false si no es el ultimo
 6. isFirstNode devuelve true si es el primero
 7. isFirstNode devuelve true si es el ultimo
-8. setItem actualiza su valor por el que se le pasa como parametro
-9. setPrevious actualiza su valor por el que se le pasa como parametro
-10. setNext actualiza su valor por el que se le pasa como parametro
+8. isNotaTerminalNode devuelve true si no es un nodo terminal
+9. setItem actualiza su valor por el que se le pasa como parametro
+10. setPrevious actualiza su valor por el que se le pasa como parametro
+11. setNext actualiza su valor por el que se le pasa como parametro
