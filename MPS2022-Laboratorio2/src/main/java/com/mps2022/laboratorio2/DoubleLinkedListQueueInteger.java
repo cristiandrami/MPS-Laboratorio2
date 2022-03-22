@@ -136,7 +136,28 @@ public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
     }
 
     @Override
-    public void sort(Comparator<?> comparator) {
+    public void sort(Comparator<Integer> comparator) {
+        //sortList() will sort the given list in ascending order
+
+            DequeNode<Integer> current = null, index = null;
+            int temp;
+            if(head == null) {
+                return;
+            }
+            else {
+                //Current will point to head
+                for(current = head; current.getNext() != null; current = current.getNext()) {
+                    //Index will point to node next to current
+                    for(index = current.getNext(); index != null; index = index.getNext()) {
+                        if(comparator.compare(current.getItem(), index.getItem())>=0){
+                            Integer tmp=current.getItem();
+                            current.setItem(index.getItem());
+                            index.setItem(tmp);
+
+                        }
+                    }
+                }
+            }
 
     }
 }
