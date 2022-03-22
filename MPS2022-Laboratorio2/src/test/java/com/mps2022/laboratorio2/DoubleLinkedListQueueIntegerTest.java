@@ -56,6 +56,20 @@ import static org.junit.jupiter.api.Assertions.*;
  * 		example if we have in list 0 5 and delete last 5, 0 will be the new tail (0)
  *
  *
+ * finding a node by his internal value -> return the right node
+ *      example if we have 3 4 5 7 and use find function with 4 as parameter, he has to return the node that contain 4
+ *
+ * finding a node by an internal value that doesn't exist -> return null
+ *      example if we have 3 4 5 7 and use find function with 10 as parameter, he has to return null
+ *
+ * using getAt with a position -> return the node in that position
+ *      example if we have 3 4 5 7 and use getAt function with 1 as parameter, he has to return the node that contain value 4
+ *
+ * using getAt with a negative position -> raise a RuntimeException
+ *      example if we have 3 4 5 7 and use getAt function with -1 as parameter, he has to raise a RuntimeException
+ *
+ * using getAt with a non-present position -> return null
+ *      example if we have 3 4 5 7 and use getAt function with 6 as parameter, he has return null
  *
  * @author Cristian Domenico Dramisino
  */
@@ -352,7 +366,7 @@ public class DoubleLinkedListQueueIntegerTest {
     class OperationsTesting{
 
         @Test
-        @DisplayName("[find] find node by internal  should return the right node")
+        @DisplayName("[find] find node by internal value should return the right node")
         public void shouldReturnTheRightNodeWhenWeTryToFindNodeByHisInternalItem(){
             DequeNode<Integer> expectedNode= new DequeNode<>(new Integer(1), null, null);
             Integer searchedValue=1;
@@ -416,7 +430,7 @@ public class DoubleLinkedListQueueIntegerTest {
         }
 
         @Test
-        @DisplayName("[getAt] shoul raise a runtime exception if position is negative")
+        @DisplayName("[getAt] should raise a runtime exception if position is negative")
         public void shouldRaiseAnExceptionWhenWeTryToFindNodeByANegativePosition(){
             int searchedPosition=-1;
 

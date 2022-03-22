@@ -1,45 +1,65 @@
-/**
-* Test cases for DoubleLinkedListQueue
-* Appending section test cases:
-*	appending null node -> Runtime exception
-*
-*	appending left null node -> Runtime exception
-*
-*	appending node -> internal size increase of 1 (size++)
-*
-*	appending node left -> internal size increase of 1 (size++)
-*
-*	appending node left -> head have to be updated
-*		example if we have in list 0 and append left 5, 5 will be the new head (5 0)
-*
-*	appending node -> head have to be updated
-*		example if we have in list 0 and append 5, 5 will be the new tail (0 5)
-*
-*	one node in list with append() -> head has to be equal to tail 
-*
-*	one node in list with appendLeft() -> head has to be equal to tail
-*
-*
-* Deleting section test cases:
-*	deleting first node on empty list -> Runtime exception
-*
-*	deleting last node on empty list -> Runtime exception
-*
-*	deleting first node on empty list -> internal size decrease of 1 (size--)
-*
-*	deleting last node on empty list -> internal size decrease of 1 (size--)
-*
-*	deleting first node on list that have only one node -> head has to be updated to null
-*
-*	deleting last node on list that have only one node -> tail has to be updated to null
-*
-*	deleting first node on list that have only one node -> tail has to be updated to null
-*
-*	deleting last node on list that have only one node -> head has to be updated to null
-*
-*	deleting first node -> head have to be updated
-*		example if we have in list 0 5 and delete first, 5 will be the new head (5)
-*
-*	deleting last node -> tail have to be updated
-*		example if we have in list 0 5 and delete last 5, 0 will be the new tail (0)
+/***
+ * This is the testing class of DoubleLinkedListQueueInteger
+ *
+ *
+ * Test cases for DoubleLinkedListQueue
+ * Appending section test cases:
+ *  appending null node -> Runtime exception
+ *
+ * 	appending left null node -> Runtime exception
+ *
+ * 	appending node -> internal size increase of 1 (size++)
+ *
+ * 	appending node left -> internal size increase of 1 (size++)
+ *
+ * 	appending node left -> head have to be updated
+ * 		example if we have in list 0 and append left 5, 5 will be the new head (5 0)
+ *
+ * 	appending node -> head have to be updated
+ * 		example if we have in list 0 and append 5, 5 will be the new tail (0 5)
+ *
+ * 	one node in list with append() -> head has to be equal to tail
+ *
+ * 	one node in list with appendLeft() -> head has to be equal to tail
+ *
+ *
+ *  Deleting section test cases:
+ * 	deleting first node on empty list -> Runtime exception
+ *
+ * 	deleting last node on empty list -> Runtime exception
+ *
+ * 	deleting first node on empty list -> internal size decrease of 1 (size--)
+ *
+ * 	deleting last node on empty list -> internal size decrease of 1 (size--)
+ *
+ * 	deleting first node on list that have only one node -> head has to be updated to null
+ *
+ * 	deleting last node on list that have only one node -> tail has to be updated to null
+ *
+ * 	deleting first node on list that have only one node -> tail has to be updated to null
+ *
+ * 	deleting last node on list that have only one node -> head has to be updated to null
+ *
+ * 	deleting first node -> head have to be updated
+ * 		example if we have in list 0 5 and delete first, 5 will be the new head (5)
+ *
+ * 	deleting last node -> tail have to be updated
+ * 		example if we have in list 0 5 and delete last 5, 0 will be the new tail (0)
+ *
+ *
+ * finding a node by his internal value -> return the right node
+ *      example if we have 3 4 5 7 and use find function with 4 as parameter, he has to return the node that contain 4
+ *
+ * finding a node by an internal value that doesn't exist -> return null
+ *      example if we have 3 4 5 7 and use find function with 10 as parameter, he has to return null
+ *
+ * using getAt with a position -> return the node in that position
+ *      example if we have 3 4 5 7 and use getAt function with 1 as parameter, he has to return the node that contain value 4
+ *
+ * using getAt with a negative position -> raise a RuntimeException
+ *      example if we have 3 4 5 7 and use getAt function with -1 as parameter, he has to raise a RuntimeException
+ *
+ * using getAt with a non-present position -> return null
+ *      example if we have 3 4 5 7 and use getAt function with 6 as parameter, he has return null
+ *
 */
