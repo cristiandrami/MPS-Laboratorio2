@@ -74,7 +74,7 @@ public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
         }else{
             tail =tail.getPrevious();
             if(tail != null)
-                head.setNext(null);
+                tail.setNext(null);
 
         }
         if(size!=0)
@@ -174,9 +174,7 @@ public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
                     }
                 }
             }
-        for(current = head; current != null; current = current.getNext()) {
-            System.out.println(current.getItem());
-        }
+
 
     }
 }

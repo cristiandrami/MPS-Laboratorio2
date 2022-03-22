@@ -497,6 +497,52 @@ public class DoubleLinkedListQueueIntegerTest {
 
         }
 
+        @Test
+        @DisplayName("[delete] should Delete The First Node Have To Modify The Head")
+
+        public void shouldDeleteTheFirstNodeHaveToModifyTheHead(){
+            DequeNode<Integer> intermediateOne = new DequeNode<Integer>(3,null,null);
+            DequeNode<Integer> intermediateTwo = new DequeNode<Integer>(4,null, null);
+            DequeNode<Integer> tail = new DequeNode<Integer>(5, null, null);
+            DequeNode<Integer> head = new DequeNode<Integer>(2, null, null);
+
+            linkedList.append(head);
+            linkedList.append(intermediateOne);
+            linkedList.append(intermediateTwo);
+            linkedList.append(tail);
+
+
+            linkedList.delete(head);
+
+            assertEquals(intermediateOne, linkedList.getAt(0));
+            assertEquals(intermediateTwo, linkedList.getAt(1));
+            assertEquals(tail, linkedList.getAt(2));
+
+
+        }
+        @Test
+        @DisplayName("[delete] should Delete The last Node Have To Modify The tail")
+        public void shouldDeleteTheLastNodeHaveToModifyTheTail(){
+            DequeNode<Integer> intermediateOne = new DequeNode<Integer>(3,null,null);
+            DequeNode<Integer> intermediateTwo = new DequeNode<Integer>(4,null, null);
+            DequeNode<Integer> tail = new DequeNode<Integer>(5, null, null);
+            DequeNode<Integer> head = new DequeNode<Integer>(2, null, null);
+
+            linkedList.append(head);
+            linkedList.append(intermediateOne);
+            linkedList.append(intermediateTwo);
+            linkedList.append(tail);
+
+
+            linkedList.delete(tail);
+
+            assertEquals(head, linkedList.getAt(0));
+            assertEquals(intermediateOne, linkedList.getAt(1));
+            assertEquals(intermediateTwo, linkedList.getAt(2));
+
+
+        }
+
 
 
         @Test
