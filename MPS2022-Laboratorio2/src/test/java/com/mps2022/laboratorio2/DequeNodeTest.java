@@ -99,7 +99,7 @@ public class DequeNodeTest {
             boolean obtainedValue = node.isNotATerminalNode();
 
             assertEquals(expectedValue,obtainedValue);
-            
+
         }
     }
     @Nested
