@@ -59,7 +59,7 @@ public class DequeNodeTest {
     }
 
     @Nested
-    class TestingIsFirstIsLast {
+    class TestingFirstLastTerminal {
         @Test
         public void isFirstNodeReturnFalseIfPreviousNotNull() {
             assertTrue(node.isFirstNode() == true);
@@ -86,6 +86,20 @@ public class DequeNodeTest {
             boolean obtainedValue = node.isLastNode();
 
             assertEquals(expectedValue, obtainedValue);
+        }
+
+        @Test
+        public void isNotaTerminalNodeReturnsTrueIfNotTerminal(){
+            previous = new DequeNode<Integer>(3,node,null);
+            next = new DequeNode<Integer>(5,null,node);
+            node.setNext(next);
+            node.setPrevious(previous);
+
+            boolean expectedValue = true;
+            boolean obtainedValue = node.isNotATerminalNode();
+
+            assertEquals(expectedValue,obtainedValue);
+            
         }
     }
     @Nested
@@ -118,6 +132,7 @@ public class DequeNodeTest {
 
             assertEquals(expectedValue, obtainedValue);
         }
+
     }
 
 }
