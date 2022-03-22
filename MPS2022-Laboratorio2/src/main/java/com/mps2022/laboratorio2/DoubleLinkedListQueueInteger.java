@@ -1,5 +1,7 @@
 package com.mps2022.laboratorio2;
 
+import java.util.Comparator;
+
 public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
     private DequeNode<Integer> head=null;
     private DequeNode<Integer> tail=null;
@@ -92,5 +94,70 @@ public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
     @Override
     public int size() {
         return size;
+    }
+
+    @Override
+    public DequeNode<Integer> find(Integer item) {
+        DequeNode<Integer> tmp=head;
+        while(tmp!=tail){
+            if(tmp!=null){
+                if(tmp.getItem().equals(item)){
+                    return tmp;
+                }
+                tmp=tmp.getNext();
+            }else{
+                break;
+            }
+
+        }
+        return null;
+    }
+
+    @Override
+    public DequeNode<Integer> getAt(int position) {
+        return null;
+    }
+
+    @Override
+    public void delete(DequeNode<Integer> node) {
+        DequeNode<Integer> tmp=head;
+        while(tmp!=tail){
+            if(tmp!=null){
+                if(tmp==node){
+                    DequeNode<Integer> previous=tmp.getPrevious();
+                    DequeNode<Integer> next = tmp.getNext();
+                    previous.setNext(next);
+                    next.setPrevious(previous);
+                    tmp=null;
+                }
+            }
+
+        }
+    }
+
+    @Override
+    public void sort(Comparator<Integer> comparator) {
+        //sortList() will sort the given list in ascending order
+
+            DequeNode<Integer> current = null, index = null;
+            int temp;
+            if(head == null) {
+                return;
+            }
+            else {
+                //Current will point to head
+                for(current = head; current.getNext() != null; current = current.getNext()) {
+                    //Index will point to node next to current
+                    for(index = current.getNext(); index != null; index = index.getNext()) {
+                        if(comparator.compare(current.getItem(), index.getItem())>=0){
+                            Integer tmp=current.getItem();
+                            current.setItem(index.getItem());
+                            index.setItem(tmp);
+
+                        }
+                    }
+                }
+            }
+
     }
 }
