@@ -476,26 +476,26 @@ public class DoubleLinkedListQueueIntegerTest {
         @Test
         @DisplayName("[delete] should delete the node passed as a parameter")
 
-            public void shouldDeleteTheNodePassedAsParameter(){
-                DequeNode<Integer> intermedio = new DequeNode<Integer>(3,null,null);
-                DequeNode<Integer> intermedio2 = new DequeNode<Integer>(4,null, null);
-                DequeNode<Integer> tail = new DequeNode<Integer>(5, null, null);
-                DequeNode<Integer> head = new DequeNode<Integer>(2, null, null);
+        public void shouldDeleteTheNodePassedAsParameter(){
+            DequeNode<Integer> intermediateOne = new DequeNode<Integer>(3,null,null);
+            DequeNode<Integer> intermediateTwo = new DequeNode<Integer>(4,null, null);
+            DequeNode<Integer> tail = new DequeNode<Integer>(5, null, null);
+            DequeNode<Integer> head = new DequeNode<Integer>(2, null, null);
 
-                linkedList.append(head);
-                linkedList.append(intermedio);
-                linkedList.append(intermedio2);
-                linkedList.append(tail);
-
-
-                linkedList.delete(intermedio);
-
-                assertEquals(head, linkedList.getAt(0));
-                assertEquals(intermedio2, linkedList.getAt(1));
-                assertEquals(tail, linkedList.getAt(2));
+            linkedList.append(head);
+            linkedList.append(intermediateOne);
+            linkedList.append(intermediateTwo);
+            linkedList.append(tail);
 
 
-            }
+            linkedList.delete(intermediateOne);
+
+            assertEquals(head, linkedList.getAt(0));
+            assertEquals(intermediateTwo, linkedList.getAt(1));
+            assertEquals(tail, linkedList.getAt(2));
+
+
+        }
 
 
 
@@ -503,15 +503,17 @@ public class DoubleLinkedListQueueIntegerTest {
         @DisplayName("[sort] should sort the list from smaller to larger")
 
         public void shouldSortTheList(){
+            Integer first=2;
+
             DequeNode<Integer> head = new DequeNode<Integer>(5, null, null);
-            DequeNode<Integer> intermedio = new DequeNode<Integer>(2,null,null);
-            DequeNode<Integer> intermedio2 = new DequeNode<Integer>(3,null, null);
+            DequeNode<Integer> intermediateOne = new DequeNode<Integer>(2,null,null);
+            DequeNode<Integer> intermediateTwo = new DequeNode<Integer>(3,null, null);
             DequeNode<Integer> tail = new DequeNode<Integer>(4, null, null);
 
 
             linkedList.append(head);
-            linkedList.append(intermedio);
-            linkedList.append(intermedio2);
+            linkedList.append(intermediateOne);
+            linkedList.append(intermediateTwo);
             linkedList.append(tail);
 
 
@@ -522,11 +524,19 @@ public class DoubleLinkedListQueueIntegerTest {
                 }
             });
 
+            Integer[] expectedList={2,3,4,5};
+            Integer[] obtainedList={linkedList.getAt(0).getItem(),linkedList.getAt(1).getItem(),
+                                    linkedList.getAt(2).getItem(),linkedList.getAt(3).getItem() };
 
+            assertArrayEquals(expectedList, obtainedList);
+
+            /*
             assertEquals(head, linkedList.getAt(3));
             assertEquals(intermedio, linkedList.getAt(0));
             assertEquals(intermedio2, linkedList.getAt(1));
             assertEquals(tail, linkedList.getAt(2));
+            */
+
 
 
         }

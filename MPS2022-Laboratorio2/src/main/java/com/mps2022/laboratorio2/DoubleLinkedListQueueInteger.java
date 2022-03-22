@@ -174,6 +174,9 @@ public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
                     }
                 }
             }
+        for(current = head; current != null; current = current.getNext()) {
+            System.out.println(current.getItem());
+        }
 
     }
 }
