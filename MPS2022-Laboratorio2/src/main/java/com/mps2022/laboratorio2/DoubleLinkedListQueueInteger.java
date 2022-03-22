@@ -1,5 +1,7 @@
 package com.mps2022.laboratorio2;
 
+import java.util.Comparator;
+
 public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
     private DequeNode<Integer> head=null;
     private DequeNode<Integer> tail=null;
@@ -92,5 +94,49 @@ public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
     @Override
     public int size() {
         return size;
+    }
+
+    @Override
+    public DequeNode<Integer> find(Integer item) {
+        DequeNode<Integer> tmp=head;
+        while(tmp!=tail){
+            if(tmp!=null){
+                if(tmp.getItem().equals(item)){
+                    return tmp;
+                }
+                tmp=tmp.getNext();
+            }else{
+                break;
+            }
+
+        }
+        return null;
+    }
+
+    @Override
+    public DequeNode<Integer> getAt(int position) {
+        return null;
+    }
+
+    @Override
+    public void delete(DequeNode<Integer> node) {
+        DequeNode<Integer> tmp=head;
+        while(tmp!=tail){
+            if(tmp!=null){
+                if(tmp==node){
+                    DequeNode<Integer> previous=tmp.getPrevious();
+                    DequeNode<Integer> next = tmp.getNext();
+                    previous.setNext(next);
+                    next.setPrevious(previous);
+                    tmp=null;
+                }
+            }
+
+        }
+    }
+
+    @Override
+    public void sort(Comparator<?> comparator) {
+
     }
 }
