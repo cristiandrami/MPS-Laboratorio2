@@ -119,7 +119,7 @@ public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
             throw new RuntimeException("position cannot be negative");
         int currentPosition=0;
         DequeNode<Integer> current = null, index = null;
-        for(current = head; current.getNext() != null; current = current.getNext()) {
+        for(current = head; current != null; current = current.getNext()) {
             if(position==currentPosition) return current;
             currentPosition++;
 
@@ -136,18 +136,17 @@ public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
         }else if(node==tail){
             deleteLast();
         }else{
-            DequeNode<Integer> tmp=head;
-            while(tmp!=tail){
-                if(tmp!=null){
-                    if(tmp==node){
-                        DequeNode<Integer> previous=tmp.getPrevious();
-                        DequeNode<Integer> next = tmp.getNext();
-                        previous.setNext(next);
-                        next.setPrevious(previous);
+            int currentPosition=0;
+            DequeNode<Integer> current = null, index = null;
+            for(current = head; current.getNext() != null; current = current.getNext()) {
+                if(current.equals(node)){
+                    DequeNode<Integer> next=current.getNext();
+                    DequeNode<Integer> previous= current.getPrevious();
 
-                        tmp=null;
-                    }
+                    previous.setNext(next);
+                    next.setPrevious(previous);
                 }
+
 
             }
         }

@@ -483,6 +483,7 @@ public class DoubleLinkedListQueueIntegerTest {
                 linkedList.append(intermedio2);
                 linkedList.append(tail);
 
+
                 linkedList.delete(intermedio);
 
                 assertEquals(head, linkedList.getAt(0));
