@@ -348,4 +348,55 @@ public class DoubleLinkedListQueueIntegerTest {
 
     }
 
+    @Nested
+    class OperationsTesting{
+
+        @Test
+        @DisplayName("find node by internal  should return the right node")
+        public void shouldReturnTheRightNodeWhenWeTryToFindNodeByHisInternalItem(){
+            DequeNode<Integer> expectedNode= new DequeNode<>(new Integer(1), null, null);
+            Integer searchedValue=1;
+
+
+            DequeNode<Integer> supportNodeOne = new DequeNode<>(new Integer(5), null, null);
+            DequeNode<Integer> supportNodeTwo = new DequeNode<>(new Integer(7), null, null);
+            DequeNode<Integer> supportNodeThree = new DequeNode<>(new Integer(4), null, null);
+            DequeNode<Integer> supportNodeFour = new DequeNode<>(new Integer(3), null, null);
+            linkedList.append(supportNodeOne);
+            linkedList.append(supportNodeTwo);
+            linkedList.append(expectedNode);
+            linkedList.append(supportNodeThree);
+            linkedList.append(supportNodeFour);
+
+            DequeNode<Integer> obtainedNode= linkedList.find(searchedValue);
+
+            assertEquals(expectedNode, obtainedNode);
+
+        }
+        @Test
+        @DisplayName("finding not contained node should return a null value")
+        public void shouldReturnNullNodeWhenWeTryToFindNodeNotPresent(){
+            Integer searchedValue=15;
+
+
+            DequeNode<Integer> supportNodeOne = new DequeNode<>(new Integer(5), null, null);
+            DequeNode<Integer> supportNodeTwo = new DequeNode<>(new Integer(7), null, null);
+            DequeNode<Integer> supportNodeThree = new DequeNode<>(new Integer(4), null, null);
+            DequeNode<Integer> supportNodeFour = new DequeNode<>(new Integer(3), null, null);
+            linkedList.append(supportNodeOne);
+            linkedList.append(supportNodeTwo);
+            linkedList.append(supportNodeThree);
+            linkedList.append(supportNodeFour);
+
+            DequeNode<Integer> obtainedNode= linkedList.find(searchedValue);
+
+            assertNull(obtainedNode);
+
+        }
+
+
+
+    }
+
+
 }

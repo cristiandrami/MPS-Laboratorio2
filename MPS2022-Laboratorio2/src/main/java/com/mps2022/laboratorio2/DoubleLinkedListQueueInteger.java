@@ -115,30 +115,47 @@ public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
 
     @Override
     public DequeNode<Integer> getAt(int position) {
+        int currentPosition=0;
+        DequeNode<Integer> current = null, index = null;
+        for(current = head; current.getNext() != null; current = current.getNext()) {
+            if(position==currentPosition) return current;
+            currentPosition++;
+
+        }
+
         return null;
     }
 
     @Override
     public void delete(DequeNode<Integer> node) {
-        DequeNode<Integer> tmp=head;
-        while(tmp!=tail){
-            if(tmp!=null){
-                if(tmp==node){
-                    DequeNode<Integer> previous=tmp.getPrevious();
-                    DequeNode<Integer> next = tmp.getNext();
-                    previous.setNext(next);
-                    next.setPrevious(previous);
-                    tmp=null;
-                }
-            }
 
+        if(node==head){
+            head.getNext().setPrevious(null);
+            head=head.getNext();
+        }else if(node==tail){
+            tail.getPrevious().setNext(null);
+            tail=tail.getPrevious();
+        }else{
+            DequeNode<Integer> tmp=head;
+            while(tmp!=tail){
+                if(tmp!=null){
+                    if(tmp==node){
+                        DequeNode<Integer> previous=tmp.getPrevious();
+                        DequeNode<Integer> next = tmp.getNext();
+                        previous.setNext(next);
+                        next.setPrevious(previous);
+
+                        tmp=null;
+                    }
+                }
+
+            }
         }
+
     }
 
     @Override
     public void sort(Comparator<Integer> comparator) {
-        //sortList() will sort the given list in ascending order
-
             DequeNode<Integer> current = null, index = null;
             int temp;
             if(head == null) {
