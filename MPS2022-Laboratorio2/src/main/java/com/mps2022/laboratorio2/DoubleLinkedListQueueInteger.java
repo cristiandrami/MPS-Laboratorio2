@@ -115,6 +115,8 @@ public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
 
     @Override
     public DequeNode<Integer> getAt(int position) {
+        if(position<0)
+            throw new RuntimeException("position cannot be negative");
         int currentPosition=0;
         DequeNode<Integer> current = null, index = null;
         for(current = head; current.getNext() != null; current = current.getNext()) {

@@ -352,7 +352,7 @@ public class DoubleLinkedListQueueIntegerTest {
     class OperationsTesting{
 
         @Test
-        @DisplayName("find node by internal  should return the right node")
+        @DisplayName("[find] find node by internal  should return the right node")
         public void shouldReturnTheRightNodeWhenWeTryToFindNodeByHisInternalItem(){
             DequeNode<Integer> expectedNode= new DequeNode<>(new Integer(1), null, null);
             Integer searchedValue=1;
@@ -374,7 +374,7 @@ public class DoubleLinkedListQueueIntegerTest {
 
         }
         @Test
-        @DisplayName("finding not contained node should return a null value")
+        @DisplayName("[find] finding not contained node should return a null value")
         public void shouldReturnNullNodeWhenWeTryToFindNodeNotPresent(){
             Integer searchedValue=15;
 
@@ -391,6 +391,67 @@ public class DoubleLinkedListQueueIntegerTest {
             DequeNode<Integer> obtainedNode= linkedList.find(searchedValue);
 
             assertNull(obtainedNode);
+
+        }
+
+        @Test
+        @DisplayName("[getAt] finding a node with a position not present")
+        public void shouldReturnNullNodeWhenWeTryToFindNodeByNotPresentPosition(){
+            int searchedPosition=15;
+
+
+            DequeNode<Integer> supportNodeOne = new DequeNode<>(new Integer(5), null, null);
+            DequeNode<Integer> supportNodeTwo = new DequeNode<>(new Integer(7), null, null);
+            DequeNode<Integer> supportNodeThree = new DequeNode<>(new Integer(4), null, null);
+            DequeNode<Integer> supportNodeFour = new DequeNode<>(new Integer(3), null, null);
+            linkedList.append(supportNodeOne);
+            linkedList.append(supportNodeTwo);
+            linkedList.append(supportNodeThree);
+            linkedList.append(supportNodeFour);
+
+            DequeNode<Integer> obtainedNode= linkedList.getAt(searchedPosition);
+
+            assertNull(obtainedNode);
+
+        }
+
+        @Test
+        @DisplayName("[getAt] shoul raise a runtime exception if position is negative")
+        public void shouldRaiseAnExceptionWhenWeTryToFindNodeByANegativePosition(){
+            int searchedPosition=-1;
+
+
+            DequeNode<Integer> supportNodeOne = new DequeNode<>(new Integer(5), null, null);
+            DequeNode<Integer> supportNodeTwo = new DequeNode<>(new Integer(7), null, null);
+            DequeNode<Integer> supportNodeThree = new DequeNode<>(new Integer(4), null, null);
+            DequeNode<Integer> supportNodeFour = new DequeNode<>(new Integer(3), null, null);
+            linkedList.append(supportNodeOne);
+            linkedList.append(supportNodeTwo);
+            linkedList.append(supportNodeThree);
+            linkedList.append(supportNodeFour);
+
+            assertThrows(RuntimeException.class, ()-> linkedList.getAt(searchedPosition));
+
+        }
+
+        @Test
+        @DisplayName("[getAt] should return the right node with the right position")
+        public void shouldReturnRightNodeWhenWeTryToFindNodeByPosition(){
+            int searchedPosition=1;
+            DequeNode<Integer> expectedNode = new DequeNode<>(new Integer(7), null, null);
+
+
+            DequeNode<Integer> supportNodeOne = new DequeNode<>(new Integer(5), null, null);
+            DequeNode<Integer> supportNodeThree = new DequeNode<>(new Integer(4), null, null);
+            DequeNode<Integer> supportNodeFour = new DequeNode<>(new Integer(3), null, null);
+            linkedList.append(supportNodeOne);
+            linkedList.append(expectedNode);
+            linkedList.append(supportNodeThree);
+            linkedList.append(supportNodeFour);
+
+            DequeNode<Integer> obtainedNode= linkedList.getAt(searchedPosition);
+
+            assertEquals(expectedNode, obtainedNode);
 
         }
 
