@@ -132,11 +132,9 @@ public class DoubleLinkedListQueueInteger implements DoubleEndedQueue<Integer>{
     public void delete(DequeNode<Integer> node) {
 
         if(node==head){
-            head.getNext().setPrevious(null);
-            head=head.getNext();
+            deleteFirst();
         }else if(node==tail){
-            tail.getPrevious().setNext(null);
-            tail=tail.getPrevious();
+            deleteLast();
         }else{
             DequeNode<Integer> tmp=head;
             while(tmp!=tail){

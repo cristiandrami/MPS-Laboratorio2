@@ -469,6 +469,28 @@ public class DoubleLinkedListQueueIntegerTest {
 
         }
 
+        @Test
+        @DisplayName("[delete] should delete the node passed as a parameter")
+
+            public void shouldDeleteTheNodePassedAsParameter(){
+                DequeNode<Integer> intermedio = new DequeNode<Integer>(3,null,null);
+                DequeNode<Integer> intermedio2 = new DequeNode<Integer>(4,null, null);
+                DequeNode<Integer> tail = new DequeNode<Integer>(5, null, null);
+                DequeNode<Integer> head = new DequeNode<Integer>(2, null, null);
+
+                linkedList.append(head);
+                linkedList.append(intermedio);
+                linkedList.append(intermedio2);
+                linkedList.append(tail);
+
+                linkedList.delete(intermedio);
+
+                assertEquals(head, linkedList.getAt(0));
+                assertEquals(intermedio2, linkedList.getAt(1));
+                assertEquals(tail, linkedList.getAt(2));
+
+                //hacer assertEqualsArray para comparar Arrays con los nodos después de hacer delete(intermedio)
+            }
 
 
     }
