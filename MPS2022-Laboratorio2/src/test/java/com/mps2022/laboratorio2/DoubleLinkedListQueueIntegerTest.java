@@ -5,6 +5,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.util.Comparator;
+
+
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /***
@@ -490,8 +494,42 @@ public class DoubleLinkedListQueueIntegerTest {
                 assertEquals(intermedio2, linkedList.getAt(1));
                 assertEquals(tail, linkedList.getAt(2));
 
-                //hacer assertEqualsArray para comparar Arrays con los nodos después de hacer delete(intermedio)
+
             }
+
+
+
+        @Test
+        @DisplayName("[sort] should sort the list from smaller to larger")
+
+        public void shouldSortTheList(){
+            DequeNode<Integer> head = new DequeNode<Integer>(5, null, null);
+            DequeNode<Integer> intermedio = new DequeNode<Integer>(2,null,null);
+            DequeNode<Integer> intermedio2 = new DequeNode<Integer>(3,null, null);
+            DequeNode<Integer> tail = new DequeNode<Integer>(4, null, null);
+
+
+            linkedList.append(head);
+            linkedList.append(intermedio);
+            linkedList.append(intermedio2);
+            linkedList.append(tail);
+
+
+            linkedList.sort(new Comparator<Integer>() {
+                @Override
+                public int compare(Integer o1, Integer o2) {
+                    return o1.compareTo(o2);
+                }
+            });
+
+
+            assertEquals(head, linkedList.getAt(3));
+            assertEquals(intermedio, linkedList.getAt(0));
+            assertEquals(intermedio2, linkedList.getAt(1));
+            assertEquals(tail, linkedList.getAt(2));
+
+
+        }
 
 
     }
