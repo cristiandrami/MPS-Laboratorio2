@@ -575,16 +575,7 @@ public class DoubleLinkedListQueueIntegerTest {
                                     linkedList.getAt(2).getItem(),linkedList.getAt(3).getItem() };
 
             assertArrayEquals(expectedList, obtainedList);
-
-            /*
-            assertEquals(head, linkedList.getAt(3));
-            assertEquals(intermedio, linkedList.getAt(0));
-            assertEquals(intermedio2, linkedList.getAt(1));
-            assertEquals(tail, linkedList.getAt(2));
-            */
-
-
-
+            
         }
 
 
