@@ -62,4 +62,15 @@
  * using getAt with a non-present position -> return null
  *      example if we have 3 4 5 7 and use getAt function with 6 as parameter, he has return null
  *
+ * using delete functon with a node passed as parameter -> have to delete from the list this node
+ *      example if we have 2 3 4 5 and use delete function with 3 node as parameter, the list will be 2 4 5
+ *
+ * using delete functon with the head node passed as parameter -> have to delete from the list this node and update the head
+ *      example if we have 2 3 4 5 and use delete function with 2 node as parameter, the list will be 3 4 5
+ *
+ * using delete functon with the tail node passed as parameter -> have to delete from the list this node and update the tail
+ *      example if we have 2 3 4 5 and use delete function with 5 node as parameter, the list will be 2 3 4 
+ *
+ * using sort function with a increasing comparator -> have to sort the list in a increasing list
+ *      example if we have 5 2 3 4 and use sort function, the list will be 2 3 4 5
 */
