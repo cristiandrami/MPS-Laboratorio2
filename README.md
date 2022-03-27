@@ -3,6 +3,6 @@
 Práctica 2 de Laboratorio
 
 Participantes:
-Cristian Domenico Dramisino
-Alfonso García Gálvez
-Álvaro Alemán Rando
+Cristian Domenico Dramisino,
+Alfonso García Gálvez,
+Álvaro Alemán Rando.
